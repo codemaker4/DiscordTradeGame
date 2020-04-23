@@ -94,12 +94,12 @@ function calcScore() {
 function redrawInf() {
   var string = "Jouw ID: " // begint met het verversen van de ID
   string += MyID + "<br>";
-  string += "jouw score: " + calcScore().toString() + '<br>'; // score berekening en laten zien
-  string += "<h3>jouw grondstoffen:</h3><ul>"; // begin grondstoffen lijst
+  string += "Jouw score: " + calcScore().toString() + '<br>'; // score berekening en laten zien
+  string += "<h3>Jouw grondstoffen:</h3><ul>"; // begin grondstoffen lijst
   for (var i = 0; i < inventory.length; i++) {
     string += "<li>" + Names[i] + ": " + inventory[i].toString() + "</li>"; // geef de grondstoffen aan
   }
-  string += "</ul><h3>jouw gebouwen:</h3><ul>"; // begin gebouwen lijst
+  string += "</ul><h3>Jouw gebouwen:</h3><ul>"; // begin gebouwen lijst
   for (var i = 0; i < buildings.length; i++) {
     string += "<li>" + BuildNames[i] + ": " + buildings[i].toString() + "</li>"; // geef de gebouwen aan
   }
