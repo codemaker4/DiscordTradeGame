@@ -6,6 +6,9 @@ while (((((keySlot*2345945)%48355)*2342993)%56464).toString() != key.split(";")[
     alert("incorrect. Probeer het nog een keer.");
   }
   key = prompt("Typ \"" + keySlot.toString() + "\" in #krijg-je-id en Thijs (CodeMaker_4) zal je je wachtwoord sturen. Voer dat wachtwoord hier in.")
+  if (!key) {
+    key = "_;999"
+  }
 }
 
 // initialisatie
@@ -24,7 +27,7 @@ var recievedIDs = []; // dit zijn alle ontavngen transacties. ze zijn als ["<gev
 var openedChests = []; // dit zijn alle kistID's die zijn geopend.
 const TotalThingCount = Names.length+BuildNames.length; // dit is een getal voor het totaal aantal type dingen (grondstypen + gebouwtypen)
 const ConfNumDepth = 6; // seed for random num generator.
-const Version = "1.5.1";
+const Version = "1.5.2";
 const RoundLength = 2;
 
 function makeInvConfNum() {
