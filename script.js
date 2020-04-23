@@ -1,15 +1,19 @@
-var keySlot = Math.round(Math.random()*1000000);
-var keyValid = false;
-var key = "_;999"
-while (((((keySlot*2345945)%48355)*2342993)%56464).toString() != key.split(";")[0]) {
-  if (key != "_;999") {
-    alert("incorrect. Probeer het nog een keer.");
-  }
-  key = prompt("Typ \"" + keySlot.toString() + "\" in #krijg-je-id en Thijs (CodeMaker_4) zal je je wachtwoord sturen. Voer dat wachtwoord hier in.")
-  if (!key) {
-    key = "_;999"
+var key;
+function login() {
+  var keySlot = Math.round(Math.random()*1000000);
+  key = "_;999"
+  while (((((keySlot*2345945)%48355)*2342993)%56464).toString() != key.split(";")[0]) {
+    if (key != "_;999") {
+      alert("incorrect. Probeer het nog een keer.");
+    }
+    key = prompt("Stuur \"" + keySlot.toString() + "\" in #krijg-je-id en Thijs (CodeMaker_4) zal je een persoonlijke code sturen. Voer die code hier in.")
+    if (!key) {
+      key = "_;999"
+    }
   }
 }
+
+login();
 
 // initialisatie
 var inventory = [0,0,0,0,0]; // hoeveelheid grondstoffen per grondstof.
@@ -27,7 +31,7 @@ var recievedIDs = []; // dit zijn alle ontavngen transacties. ze zijn als ["<gev
 var openedChests = []; // dit zijn alle kistID's die zijn geopend.
 const TotalThingCount = Names.length+BuildNames.length; // dit is een getal voor het totaal aantal type dingen (grondstypen + gebouwtypen)
 const ConfNumDepth = 6; // seed for random num generator.
-const Version = "1.5.2";
+const Version = "1.5.3";
 const RoundLength = 2;
 
 function makeInvConfNum() {
@@ -411,7 +415,24 @@ invconf = makeInvConfNum();
 
 setInterval(function () {
   if (!checkInvConfNum()) {
-    window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
-    close();
+    // window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+    var text = "De app heeft een verandering in de interne data gedetecteerd die niet is goedgekeurd. Dit is een anti-hack beveiliging. Als dit onrechtvaaridig is gebeurd moet je met Thijs contact opzoeken."
+    text += "\nHier volgt wat data.\n"
+    for (var i = transLog.length-1; i >= 0; i--) {
+      text += i.toString() +": "+ transLog[i] + "\n";
+    }
+    text += "inventory: [" + inventory.toString() + "]\n";
+    text += "buildings: [" + buildings.toString() + "]\n";
+    text += "stored inventory number " + invconf.toString() + "\n";
+    text += "what it should be " + makeInvConfNum().toString() + "\n";
+    text += "end";
+    alert(text);
+    inventory = [0,0,0,0,0];
+    buildings = [0,0,0,0,0];
+    invconf = makeInvConfNum();
+    addToTransLog("Hackbeveiliging is geactiveerd.")
+    redrawInf();
+    alert("Je moet opniew inloggen")
+    login();
   }
 },10)
