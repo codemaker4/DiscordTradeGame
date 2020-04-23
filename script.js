@@ -13,8 +13,8 @@ var inventory = [0,0,0,0,0]; // hoeveelheid grondstoffen per grondstof.
 var buildings = [0,0,0,0,0]; // heoveelheid gebouwen
 var invconf = 0;
 const invconfSeed = Math.random()*100000;
-const Names = ["hout", "graan", "baksteen", "schaap", "ijzer"]; // namen van grondstoffen
-const BuildNames = ["bos", "weiland", "baksteenfabriek", "boederij", "mijn"]; // namen van gebouwen
+const Names = ["hout", "graan", "baksteen", "schapen", "ijzer"]; // namen van grondstoffen
+const BuildNames = ["bossen", "weilanden", "baksteenfabrieken", "boederijen", "mijnen"]; // namen van gebouwen
 const AllNames = Names.concat(BuildNames); // namen van alle dingen bij elkaar.
 const BuildPrices = [[4,1],[1,0],[3,4],[2,3],[0,2]]; // type grondstoffen nodig per gebouw
 const PriceAmount = 2; // hoeveelheid grondstoffen nodig per grondstof voor een gebouw op het begin
@@ -24,7 +24,7 @@ var recievedIDs = []; // dit zijn alle ontavngen transacties. ze zijn als ["<gev
 var openedChests = []; // dit zijn alle kistID's die zijn geopend.
 const TotalThingCount = Names.length+BuildNames.length; // dit is een getal voor het totaal aantal type dingen (grondstypen + gebouwtypen)
 const ConfNumDepth = 6; // seed for random num generator.
-const Version = "1.5";
+const Version = "1.5.1";
 const RoundLength = 2;
 
 function makeInvConfNum() {
@@ -298,7 +298,7 @@ function recieve() { // otherID.transID.MyID.transType.amount.all+%7
 
 // functie voor het looten van een lootchest.
 function lootChest() {
-  var chestCode = prompt("Welke code staat er in de kist?", "1.2.3.4"); // chestID, lootType, amount, confNum
+  var chestCode = prompt("Typ de kistcode?", "1.2.3.4"); // chestID, lootType, amount, confNum
   if (!chestCode) {
     alert("geannuleerd");
     return
@@ -330,6 +330,7 @@ function lootChest() {
     alert("De kist had " + chestCode[2].toString() + " " + AllNames[chestCode[1]] + ".");
   } else if (chestCode[1] < AllNames.length) {
     buildings[chestCode[1]-Names.length] += chestCode[2];
+    alert("De kist had " + chestCode[2].toString() + " " + AllNames[chestCode[1]] + ".");
   } else {
     alert("De kist lijkt een niet bestaand item te hebben. Probeer het opnieuw.")
     return;

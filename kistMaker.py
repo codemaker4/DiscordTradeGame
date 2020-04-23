@@ -8,14 +8,17 @@ def getConfNum(num, depth):
 # for i in range(50):
 #     print(str(i) + '----' + str(getConfNum(i, ConfNumDepth)))
 
+nextID = int(input("nextID > "))
+
 while True:
-    print("0: hout       5: bos")
-    print("1: graan      6: weiland")
-    print("2: baksteen   7: baksteenfabriek")
-    print("3: schaap     8: boederij")
-    print("4: ijzer      9: mijn")
-    chestID = int(input("id: "))
-    itemType = int(input("itemType: "))
-    itemCount = int(input("itemCount: "))
+    chestID = nextID
+    print("0: hout       5: bossen")
+    print("1: graan      6: weilanden")
+    print("2: baksteen   7: baksteenfabrieken")
+    print("3: schapen    8: boederijen")
+    print("4: ijzer      9: mijnen")
+    itemType = int(input("itemType > "))
+    itemCount = int(input("itemCount > "))
     confNum = getConfNum(chestID + itemType + itemCount, ConfNumDepth)
     print(str(chestID)+"."+str(itemType)+"."+str(itemCount)+"."+str(confNum))
+    nextID += 1
