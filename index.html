@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="nl" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Handelsspel</title>
+    <title>catancalc2</title>
   </head>
-  <body>
-    WIP
+  <body id="mainBody" style="transition: all 1s; margin: auto; width: 100%; background-color: #fff; color: #000;">
+    <button type="button" style="transition: all 1s; border-width: 0; width:50%; height:20vh; float:left; font-size:6vh; background-color: #22F; color: #000;" id="give" onclick="give()">geef</button>
+    <button type="button" style="transition: all 1s; border-width: 0; width:50%; height:20vh; float:left; font-size:6vh; background-color: #2FF; color: #000;" id="buyBuilding" onclick="buyBuilding()">koop gebouw</button>
+    <button type="button" style="transition: all 1s; border-width: 0; width:50%; height:20vh; float:left; font-size:6vh; background-color: #2F2; color: #000;" id="recieve" onclick="recieve()">ontvang</button>
+    <button type="button" style="transition: all 1s; border-width: 0; width:50%; height:20vh; float:left; font-size:6vh; background-color: #CC2; color: #000;" id="lootChest" onclick="lootChest()">open kist</button>
+    <div id="mainDiv" style="transition: all 1s; width: calc(100% - 20px); float: left; font-size:5vh; padding: 10px;">
+
+    </div>
+    <button type="button" style="transition: all 1s; border-width: 0; width:50%; height:10vh; float:left; font-size:4vh; background-color: #CCC; color: #000;" id="changeStyle" onclick="changeStyle()">Donker thema</button>
+    <button type="button" style="transition: all 1s; border-width: 0; width:50%; height:10vh; float:left; font-size:4vh; background-color: #FF2; color: #000;" id="transactions" onclick="giveTransLog()">transacties</button>
   </body>
+  <script src="script.js" charset="utf-8"></script>
 </html>
