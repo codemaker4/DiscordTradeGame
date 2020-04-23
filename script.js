@@ -1,11 +1,11 @@
-var keySlot = Math.round(Math.random()*10000);
+var keySlot = Math.round(Math.random()*1000000);
 var keyValid = false;
 var key = "_;999"
-while (!((((keySlot*2345945)%48355)*2342993)%5646).toString() == key.split(";")[0]) {
-  if (key != -1) {
+while (((((keySlot*2345945)%48355)*2342993)%56464).toString() != key.split(";")[0]) {
+  if (key != "_;999") {
     alert("incorrect. Probeer het nog een keer.");
   }
-  key = prompt("Typ \"" + key.toString + "\" in #krijg-je-id en Thijs (CodeMaker_4) zal je je wachtwoord sturen. Voer dat wachtwoord hier in.")
+  key = prompt("Typ \"" + keySlot.toString() + "\" in #krijg-je-id en Thijs (CodeMaker_4) zal je je wachtwoord sturen. Voer dat wachtwoord hier in.")
 }
 
 // initialisatie
@@ -43,13 +43,14 @@ function checkInvConfNum() {
 }
 
 // startGebouw initialisatie
-var defBuilding = prompt("begingebouw?" + BuildNames);
-while (defBuilding && (isNaN(parseInt(defBuilding)) || parseInt(defBuilding) < 0 || parseInt(defBuilding) >= BuildNames.length)) {
-  defBuilding = prompt("dat is geen begingebouw. begingebouw?" + BuildNames);
-}
-if (defBuilding) { // false als er niks is ingevoerd of er op annuleren is gedrukt, true als er wat staat en het uit de voorige loop is gekomen.
-  buildings[parseInt(defBuilding)] += 1;
-}
+// var defBuilding = prompt("begingebouw?" + BuildNames);
+// while (defBuilding && (isNaN(parseInt(defBuilding)) || parseInt(defBuilding) < 0 || parseInt(defBuilding) >= BuildNames.length)) {
+//   defBuilding = prompt("dat is geen begingebouw. begingebouw?" + BuildNames);
+// }
+// if (defBuilding) { // false als er niks is ingevoerd of er op annuleren is gedrukt, true als er wat staat en het uit de voorige loop is gekomen.
+//   buildings[parseInt(defBuilding)] += 1;
+// }
+buildings[MyID%buildings.length] += 1;
 
 // calculates the confnum for a given sum
 function getConfNum(num, depth) {
